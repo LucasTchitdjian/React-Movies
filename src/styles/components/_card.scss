@@ -104,5 +104,9 @@
       box-shadow: 0 0 10px #546ee4d2;
       font-size: 1.025rem;
     }
+    &:active {
+      transform: scale(1.05) translateX(-50%);
+      color: $black;
+    }
   }
 }
