@@ -86,6 +86,14 @@ const Card = ({ movie }) => {
     }
   };
 
+  const deleteStorage = () => {
+    let storedData = window.localStorage.movies.split(",");
+
+    let newData = storedData.filter((id) => id != movie.id);
+
+    window.localStorage.movies = newData;
+  };
+
   return (
     <div className="card">
       <img
@@ -119,7 +127,15 @@ const Card = ({ movie }) => {
           Ajouter aux coups de coeurs
         </div>
       ) : (
-        <div className="btn">Suprimer de la liste</div>
+        <div
+          className="btn"
+          onClick={() => {
+            deleteStorage();
+            window.location.reload();
+          }}
+        >
+          Suprimer de la liste
+        </div>
       )}
     </div>
   );
